@@ -90,6 +90,13 @@ ip route 0.0.0.0 0.0.0.0 200.10.1.18
 ip route 0.0.0.0 255.255.255.255 GigabitEthernet0/0 
 ```
 
+# Abridging the routes 
+In order to reduce the number of routes, we can condense them on the interfaces as such : 
+```
+interface fastEthernet 0/0
+ip summary-address eigrp 90 10.1.0.0 255.255.252.0
+```
+
 # Adding ACLs
 Here we will need to add the acl so that the router can send back the information to router 3 and that acl just permit
 the network 10.0.0.0
