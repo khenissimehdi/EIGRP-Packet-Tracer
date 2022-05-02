@@ -76,6 +76,5 @@ pick also an interface that will hold the 0.0.0.0
 ```
 ip route 0.0.0.0 0.0.0.0 200.10.1.18 
 ip route 0.0.0.0 255.255.255.255 GigabitEthernet0/0 
-
 ```
 
