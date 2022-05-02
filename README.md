@@ -28,23 +28,13 @@ network 172.30.0.0 0.0.255.255
 ```
 
 So, on our EIGRP routers we have to include neighbours networks ot include as such : 
-R1 & R5 
+R1 & R2 
 ```
 router eigrp 90
  network 10.1.0.0 0.0.255.255
  network 192.168.0.0 0.0.0.3
  network 192.168.0.8 0.0.0.3
 ```
-However, on the router which has a static route (to go to the internet) we have to specify the static route and redistribute it to the others routers
-R2 : 
-```
-router eigrp 90
- network 192.168.0.0 0.0.0.3
- network 192.168.0.4 0.0.0.3
- network 0.0.0.0
- ip route 0.0.0.0 255.255.255.255 GigabitEthernet0/0
-```
-
 
 # R3 
 in this router we are going do basically the same thing as the other routers but this time we are going to add the ability to redistribute the default route that lead the hots to the internet
@@ -55,6 +45,7 @@ redistribute static  -> allow the router to redisstribute the static route
 network 192.168.0.0 0.0.0.3 
 network 192.168.0.4 0.0.0.3
 network 0.0.0.0 -> the static route 
+ip route 0.0.0.0 255.255.255.255 GigabitEthernet0/0
 ```
 
 
