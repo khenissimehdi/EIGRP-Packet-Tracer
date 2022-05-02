@@ -27,6 +27,15 @@ We can either use a wildcardmask or use the exact ip.
 network 172.30.0.0 0.0.255.255
 ```
 
+So, on our EIGRP routers we have to include neighbours networks ot include as such : 
+R1 & R2 
+```
+router eigrp 90
+ network 10.1.0.0 0.0.255.255
+ network 192.168.0.0 0.0.0.3
+ network 192.168.0.8 0.0.0.3
+```
+
 # R3 
 in this router we are going do basically the same thing as the other routers but this time we are going to add the ability to redistribute the default route that lead the hots to the internet
 because he is the only one that can see it.
@@ -36,7 +45,10 @@ redistribute static  -> allow the router to redisstribute the static route
 network 192.168.0.0 0.0.0.3 
 network 192.168.0.4 0.0.0.3
 network 0.0.0.0 -> the static route 
+ip route 0.0.0.0 255.255.255.255 GigabitEthernet0/0
 ```
+
+
 
 # NAT Configuration
 NAT enables private IP internet works that use Unregistered IP addresses to connect to the Internet.
