@@ -35,7 +35,15 @@ router eigrp 90
  network 192.168.0.0 0.0.0.3
  network 192.168.0.8 0.0.0.3
 ```
-
+However, on the router which has a static route (to go to the internet) we have to specify the static route and redistribute it to the others routers
+R2 : 
+```
+router eigrp 90
+ network 192.168.0.0 0.0.0.3
+ network 192.168.0.4 0.0.0.3
+ network 0.0.0.0
+ ip route 0.0.0.0 255.255.255.255 GigabitEthernet0/0
+```
 
 
 # R3 
@@ -49,15 +57,7 @@ network 192.168.0.4 0.0.0.3
 network 0.0.0.0 -> the static route 
 ```
 
-However, on the router which has a static route (to go to the internet) we have to specify the static route and redistribute it to the others routers
-R2 : 
-```
-router eigrp 90
- network 192.168.0.0 0.0.0.3
- network 192.168.0.4 0.0.0.3
- network 0.0.0.0
- ip route 0.0.0.0 255.255.255.255 GigabitEthernet0/0
-```
+
 
 # NAT Configuration
 NAT enables private IP internet works that use Unregistered IP addresses to connect to the Internet.
