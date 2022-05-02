@@ -9,3 +9,18 @@ EIGRP replaced the Interior Gateway Routing Protocol (IGRP) in 1993. One of the 
 EIGRP is a dynamic routing protocol by which routers automatically share route information. This eases the workload on a network administrator who does not have to configure changes to the routing table manually.
 In addition to the routing table, EIGRP also stores the neighbour table and the topology table.
 
+# Configuring EIGRP on the routers
+
+First, to enter EIGRP mode we have to choose an Autonomous System  (number) and enter the following:  
+
+```
+router eigrp 90
+no auto-summary
+```
+
+Then we have to specify which network should be integrated in the EIGRP config 
+We can either use a wildcardmask or use the exact ip.
+
+``` 
+network 172.30.0.0 0.0.255.255
+```
