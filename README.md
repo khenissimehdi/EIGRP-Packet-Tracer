@@ -11,8 +11,21 @@ In addition to the routing table, EIGRP also stores the neighbour table and the 
 
 
 
+# Configuring EIGRP on the routers
 
-# EIGRP 
+First, to enter EIGRP mode we have to choose an Autonomous System  (number) and enter the following:
+
+```
+router eigrp 90
+no auto-summary
+```
+
+Then we have to specify which network should be integrated in the EIGRP config
+We can either use a wildcardmask or use the exact ip.
+
+``` 
+network 172.30.0.0 0.0.255.255
+```
 
 # R3 
 in this router we are going do basically the same thing as the other routers but this time we are going to add the ability to redistribute the default route that lead the hots to the internet
@@ -63,4 +76,6 @@ pick also an interface that will hold the 0.0.0.0
 ```
 ip route 0.0.0.0 0.0.0.0 200.10.1.18 
 ip route 0.0.0.0 255.255.255.255 GigabitEthernet0/0 
+
 ```
+
