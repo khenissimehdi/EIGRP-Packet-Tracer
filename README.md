@@ -90,3 +90,11 @@ ip route 0.0.0.0 0.0.0.0 200.10.1.18
 ip route 0.0.0.0 255.255.255.255 GigabitEthernet0/0 
 ```
 
+# Adding ACLs
+Here we will need to add the acl so that the router can send back the information to router 3 and that acl just permit
+the network 10.0.0.0
+
+```
+access-list 1 permit 10.0.0.0 0.255.255.255
+```
+
